@@ -1,0 +1,18 @@
+Majors:
+* inline keyboard
+* -hsqldb +postgresql
+* delete command, format messages (status messages), non-command procession
+* command hovers and /help
+* hosting
+
+Minors:
+* comments and kotlin docs
+* Getters of lazy classes cannot be final
+
+Ideal:
+* predefined estimates to vote
+* internalization and bot settings
+* roles and permissions?
+* web hook vs long polling
+* -TelegramBots library?
+* gradle kotlin dsl?
