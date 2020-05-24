@@ -19,7 +19,7 @@ open class VoteEntry(
     private var id: Long? = null
 
     override fun toString() = """
-            Vote entry for user ${participant.firstName} ${participant.lastName} (${participant.userName})
-            Estimation: ${if(vote.active) "hidden" else estimation}
-        """.trimIndent()
+            |Vote entry for user ${participant.firstName} ${participant.lastName} (${participant.userName})
+            |Estimation: ${if(vote.active) "hidden" else estimation}
+            """.trimMargin()
 }

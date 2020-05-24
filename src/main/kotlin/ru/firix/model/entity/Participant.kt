@@ -39,7 +39,7 @@ open class Participant(
     }
 
     override fun toString() = """
-        Participant with username: $userName, userId: $userId
-        Requested vote: $requestedVote
-    """.trimIndent()
+            |Participant with username: $userName, userId: $userId
+            |Requested vote: $requestedVote
+            """.trimMargin()
 }

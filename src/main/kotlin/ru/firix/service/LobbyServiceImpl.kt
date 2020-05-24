@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.telegram.telegrambots.meta.api.objects.User
-import ru.firix.exception.LobbyStructureException
 import ru.firix.exception.ParticipantNotFoundException
 import ru.firix.exception.VoteException
 import ru.firix.model.dao.LobbyRepository
@@ -82,6 +81,6 @@ open class LobbyServiceImpl @Autowired constructor(
     }
 
     override fun getStatus(chatId: Long): String {
-        return lobbyRepository.getByChatId(chatId).toString()
+        return lobbyRepository.getByChatId(chatId)?.toString() ?: "Lobby is not created."
     }
 }

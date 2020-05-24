@@ -1,18 +1,18 @@
 Majors:
-* inline keyboard
-* -hsqldb +postgresql
-* delete command, format messages (status messages), non-command procession
-* command hovers and /help
-* hosting
+* command hovers
+* vote command
+* delete command
+* bot settings
+* predefined estimates to vote, inline keyboard
 
 Minors:
-* comments and kotlin docs
-* Getters of lazy classes cannot be final
+* +ddl sql scripts for h2 -jpa ddl-auto. + indexes, constraints
+* [build warning] Getters of lazy classes cannot be final
 
-Ideal:
-* predefined estimates to vote
-* internalization and bot settings
+Ideal (optional?):
+* internalization
+* -hsqldb +postgresql?
 * roles and permissions?
-* web hook vs long polling
+* web hook vs long polling?
 * -TelegramBots library?
 * gradle kotlin dsl?

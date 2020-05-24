@@ -25,8 +25,8 @@ open class Lobby(
     private var id: Long? = null
 
     override fun toString() = """
-            Lobby with chat ID: $chatId
-            Participants: $participants
-            Votes: $votes
-        """.trimIndent()
+            |Lobby with chat ID: $chatId
+            |Participants: $participants
+            |Votes: $votes
+            """.trimMargin()
 }

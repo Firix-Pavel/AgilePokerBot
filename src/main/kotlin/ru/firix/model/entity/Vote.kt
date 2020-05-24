@@ -20,9 +20,8 @@ open class Vote(
     private var id: Long? = null
 
     override fun toString() = """
-            Vote with title $title
-            Active: $active
-            Vote entries: $voteEntries
-        """.trimIndent()
-
+            |Vote with title $title
+            |Active: $active
+            |Vote entries: $voteEntries
+        """.trimMargin()
 }
