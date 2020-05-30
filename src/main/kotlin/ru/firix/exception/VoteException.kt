@@ -1,3 +1,3 @@
 package ru.firix.exception
 
-class VoteException(message: String): AgilePokerBotException(message)
+class VoteException(message: String): PlanningPokerBotException(message)

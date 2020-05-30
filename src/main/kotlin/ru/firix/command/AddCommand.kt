@@ -7,7 +7,7 @@ import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand
 import org.telegram.telegrambots.meta.api.objects.Chat
 import org.telegram.telegrambots.meta.api.objects.User
 import org.telegram.telegrambots.meta.bots.AbsSender
-import ru.firix.exception.AgilePokerBotException
+import ru.firix.exception.PlanningPokerBotException
 import ru.firix.model.entity.Participant
 import ru.firix.service.LobbyService
 import ru.firix.util.sendMessage
@@ -30,7 +30,7 @@ class AddCommand @Autowired constructor(private val lobbyService: LobbyService):
             newAddedParticipants = lobbyService.addUsers(chatId, arguments.toList())
             sendMessage(sender, chatId, "Next new users were added in lobby "
                     + newAddedParticipants.map { "${it.firstName} ${it.lastName} (${it.userName})" })
-        } catch (ex: AgilePokerBotException) {
+        } catch (ex: PlanningPokerBotException) {
             sendMessage(sender, chatId, ex.message)
             return
         }

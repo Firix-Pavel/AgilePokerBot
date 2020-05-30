@@ -38,8 +38,5 @@ open class Participant(
         return userId
     }
 
-    override fun toString() = """
-            |Participant with username: $userName, userId: $userId
-            |Requested vote: $requestedVote
-            """.trimMargin()
+    override fun toString() = "$firstName $lastName ($userName)"
 }

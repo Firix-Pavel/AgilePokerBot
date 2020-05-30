@@ -18,8 +18,7 @@ open class VoteEntry(
     @GeneratedValue
     private var id: Long? = null
 
-    override fun toString() = """
-            |Vote entry for user ${participant.firstName} ${participant.lastName} (${participant.userName})
-            |Estimation: ${if(vote.active) "hidden" else estimation}
-            """.trimMargin()
+    override fun toString() =
+            "Participant $participant." +
+            " Estimation: ${if(vote.active) "hidden" else estimation}"
 }

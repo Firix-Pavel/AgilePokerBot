@@ -7,14 +7,14 @@ import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand
 import org.telegram.telegrambots.meta.api.objects.Chat
 import org.telegram.telegrambots.meta.api.objects.User
 import org.telegram.telegrambots.meta.bots.AbsSender
-import ru.firix.exception.AgilePokerBotException
+import ru.firix.exception.PlanningPokerBotException
 import ru.firix.service.VotingService
 import ru.firix.util.sendMessage
 
 @Component
 class ForceFinishCommand @Autowired constructor(
         private val votingService: VotingService
-): BotCommand("/forceFinish", "start voting") {
+): BotCommand("/forceFinish", "stop voting") {
     private val logger = LoggerFactory.getLogger(javaClass)
 
     override fun execute(sender: AbsSender, user: User, chat: Chat, arguments: Array<out String>) {
@@ -28,7 +28,7 @@ class ForceFinishCommand @Autowired constructor(
         try {
             val vote = votingService.forceFinish(chatId)
             sendMessage(sender, chatId, "Voting finished, results: $vote")
-        } catch(ex: AgilePokerBotException) {
+        } catch(ex: PlanningPokerBotException) {
             sendMessage(sender, chatId, ex.message)
         }
     }

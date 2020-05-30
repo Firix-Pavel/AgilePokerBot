@@ -13,7 +13,7 @@ import ru.firix.util.sendMessage
 @Component
 class VoteCommand @Autowired constructor(
         private val votingService: VotingService
-): BotCommand("/vote", "start voting") {
+): BotCommand("/vote", "require voting") {
     private val logger = LoggerFactory.getLogger(javaClass)
 
     override fun execute(sender: AbsSender, user: User, chat: Chat, arguments: Array<out String>) {

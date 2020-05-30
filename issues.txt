@@ -1,9 +1,8 @@
 Majors:
-* command hovers
-* vote command
-* delete command
+* vote command (repeat request estimation for user)
+* delete command by usernames
 * bot settings
-* predefined estimates to vote, inline keyboard
+* predefined estimates to vote, inline keyboard, fibonacci cards
 
 Minors:
 * +ddl sql scripts for h2 -jpa ddl-auto. + indexes, constraints

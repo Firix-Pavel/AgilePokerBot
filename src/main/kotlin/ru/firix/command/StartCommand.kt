@@ -25,6 +25,6 @@ class StartCommand @Autowired constructor(private val participantService: Partic
 
         val isCreatedNewParticipant = participantService.saveUser(user)
         sendMessage(sender, chatId, "Hello, ${user.firstName}, " +
-                if (isCreatedNewParticipant) "you were added to agile poker." else "we've updated info about you.")
+                if (isCreatedNewParticipant) "you were added to planning poker." else "we've updated info about you.")
     }
 }

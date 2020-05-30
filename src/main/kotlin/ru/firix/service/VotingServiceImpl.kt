@@ -26,7 +26,7 @@ open class VotingServiceImpl @Autowired constructor(
     override fun start(chatId: Long, title: String): List<Participant> {
         val lobby = lobbyRepository.getByChatId(chatId)
         if (lobby == null || lobby.participants.isEmpty()) {
-            throw LobbyStructureException("Lobby for chat is empty, add users in lobby.")
+            throw LobbyStructureException("Lobby for chat is empty, add users into lobby.")
         }
         if (voteRepository.getByLobbyAndActive(lobby, true) != null) {
             throw VoteException(
@@ -60,7 +60,7 @@ open class VotingServiceImpl @Autowired constructor(
         val userId = user.id
         val participant = participantRepository.getByUserId(userId) ?: throw ParticipantNotFoundException(
                 "User ${user.firstName} ${user.lastName} (${user.userName}) was not added to system. " +
-                        "You have to /start AgilePokerBot."
+                        "You have to /start PlanningPokerBot."
         )
         val vote = participant.requestedVote ?: throw VoteException("You are not participating in any votes.")
         val lobby = vote.lobby

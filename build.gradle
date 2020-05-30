@@ -20,11 +20,11 @@ apply plugin: "kotlin"
 apply plugin: "application"
 apply plugin: "kotlin-jpa" // no-arg constructor for @Entity
 
-mainClassName = 'ru.firix.bot.AgilePokerBotInit'
+mainClassName = 'ru.firix.bot.PlanningPokerBotInit'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'ru.firix.bot.AgilePokerBotInitKt'
+        attributes 'Main-Class': 'ru.firix.bot.PlanningPokerBotInitKt'
     }
 
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }

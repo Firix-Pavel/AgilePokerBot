@@ -23,13 +23,17 @@ open class LobbyServiceImpl @Autowired constructor(
     private val logger = LoggerFactory.getLogger(javaClass)
 
     override fun addUsers(chatId: Long, userNames: List<String>): List<Participant> {
+        if (userNames.isEmpty()) {
+            throw ParticipantNotFoundException("List of participants is empty." +
+                    " Use \"/add <username> [<username>...]\" command to add users.")
+        }
         val participants = participantRepository.getByUserNameIn(userNames)
         if (participants.size != userNames.size) {
             val notFoundUserNames = userNames.filter { userName ->
                 !participants.map { it.userName }.contains(userName)
             }
             throw ParticipantNotFoundException("Users with userNames $notFoundUserNames were not added to system." +
-                    " They have to /start AgilePokerBot in private chat.")
+                    " They have to /start PlanningPokerBot in private chat.")
         }
 
         var lobby = lobbyRepository.getByChatId(chatId)
@@ -51,7 +55,7 @@ open class LobbyServiceImpl @Autowired constructor(
     override fun addUser(chatId: Long, user: User): Boolean {
         val participant = participantRepository.getByUserId(user.id) ?: throw ParticipantNotFoundException(
                 "User ${user.firstName} ${user.lastName} (${user.userName}) was not added to system. " +
-                        "User has to /start AgilePokerBot in private chat.")
+                        "User has to /start PlanningPokerBot in private chat.")
 
         var lobby = lobbyRepository.getByChatId(chatId)
         if (lobby == null) {

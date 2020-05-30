@@ -14,7 +14,7 @@ import org.telegram.telegrambots.meta.TelegramBotsApi
 @SpringBootApplication(scanBasePackages = ["ru.firix"])
 @EnableJpaRepositories(basePackages = ["ru.firix"])
 @EntityScan(basePackages = ["ru.firix.model.entity"])
-open class AgilePokerBotInit @Autowired constructor(
+open class PlanningPokerBotInit @Autowired constructor(
         private val applicationContext: ApplicationContext,
         private val env: Environment
 ) : CommandLineRunner {
@@ -22,12 +22,12 @@ open class AgilePokerBotInit @Autowired constructor(
     companion object {
         @JvmStatic fun main(args: Array<String>) {
             ApiContextInitializer.init()
-            runApplication<AgilePokerBotInit>(*args)
+            runApplication<PlanningPokerBotInit>(*args)
         }
     }
 
     override fun run(vararg args: String?) {
-        val agilePokerBot = applicationContext.getBean("agilePokerBot") as AgilePokerBot
-        TelegramBotsApi().registerBot(agilePokerBot)
+        val planningPokerBot = applicationContext.getBean("planningPokerBot") as PlanningPokerBot
+        TelegramBotsApi().registerBot(planningPokerBot)
     }
 }

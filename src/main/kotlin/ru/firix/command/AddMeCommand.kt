@@ -7,7 +7,7 @@ import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand
 import org.telegram.telegrambots.meta.api.objects.Chat
 import org.telegram.telegrambots.meta.api.objects.User
 import org.telegram.telegrambots.meta.bots.AbsSender
-import ru.firix.exception.AgilePokerBotException
+import ru.firix.exception.PlanningPokerBotException
 import ru.firix.service.LobbyService
 import ru.firix.util.sendMessage
 
@@ -27,7 +27,7 @@ class AddMeCommand @Autowired constructor(private val lobbyService: LobbyService
         val isNewUserAdded: Boolean
         try {
             isNewUserAdded = lobbyService.addUser(chatId, user)
-        } catch (ex: AgilePokerBotException) {
+        } catch (ex: PlanningPokerBotException) {
             sendMessage(sender, chatId, ex.message)
             return
         }

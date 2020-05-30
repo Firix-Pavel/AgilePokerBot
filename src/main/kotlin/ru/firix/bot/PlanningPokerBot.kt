@@ -4,20 +4,18 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Message
 import org.telegram.telegrambots.meta.api.objects.Update
 import ru.firix.command.*
 import ru.firix.service.incoming.processor.IncomingMessageProcessor
-import ru.firix.util.sendMessage
 
 @Component
-class AgilePokerBot @Autowired constructor(
+class PlanningPokerBot @Autowired constructor(
         private val startCommand: StartCommand,
         private val helpCommand: HelpCommand,
         private val addCommand: AddCommand,
         private val addMeCommand: AddMeCommand,
-        private val deleteCommand: DeleteCommand,
+        private val deleteAllCommand: DeleteAllCommand,
         private val statusCommand: StatusCommand,
         private val startVoteCommand: StartVoteCommand,
         private val forceFinishCommand: ForceFinishCommand,
@@ -36,7 +34,7 @@ class AgilePokerBot @Autowired constructor(
 
         register(addCommand)
         register(addMeCommand)
-        register(deleteCommand)
+        register(deleteAllCommand)
         register(statusCommand)
 
         register(startVoteCommand)
