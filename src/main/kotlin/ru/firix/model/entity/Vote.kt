@@ -23,5 +23,5 @@ open class Vote(
             |Title: "$title"
             |Active: $active
             |Vote entries:
-            |""".trimMargin() + voteEntries.joinToString("\n", "*") { it.toString() }
+            |""".trimMargin() + voteEntries.joinToString("\n") { "* $it" }
 }

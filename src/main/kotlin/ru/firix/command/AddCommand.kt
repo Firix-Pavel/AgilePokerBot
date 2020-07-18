@@ -29,7 +29,7 @@ class AddCommand @Autowired constructor(private val lobbyService: LobbyService):
         try {
             newAddedParticipants = lobbyService.addUsers(chatId, arguments.toList())
             sendMessage(sender, chatId, "Next new users were added in lobby "
-                    + newAddedParticipants.map { "${it.firstName} ${it.lastName} (${it.userName})" })
+                    + newAddedParticipants.map { "${it.firstName} ${it.lastName ?: ""} (${it.userName})" })
         } catch (ex: PlanningPokerBotException) {
             sendMessage(sender, chatId, ex.message)
             return

@@ -25,7 +25,6 @@ open class Lobby(
     private var id: Long? = null
 
     override fun toString() = """
-            |Lobby with chat ID: $chatId
             |Participants:
-            |""".trimMargin() + participants.joinToString("\n", "*") { it.toString() }
+            |""".trimMargin() + participants.joinToString("\n") { "* $it" }
 }

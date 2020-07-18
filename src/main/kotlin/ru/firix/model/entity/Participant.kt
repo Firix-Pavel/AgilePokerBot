@@ -15,7 +15,7 @@ open class Participant(
         @Column(name = "first_name")
         var firstName: String,
         @Column(name = "last_name")
-        var lastName: String,
+        var lastName: String?,
         @ManyToOne
         @JoinColumn(name = "vote_id")
         var requestedVote: Vote? = null,
@@ -38,5 +38,5 @@ open class Participant(
         return userId
     }
 
-    override fun toString() = "$firstName $lastName ($userName)"
+    override fun toString() = "$firstName ${lastName ?: ""} ($userName)"
 }
